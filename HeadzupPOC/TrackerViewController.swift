@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class TrackerViewController: UIViewController {
     
@@ -45,8 +46,30 @@ class TrackerViewController: UIViewController {
         
     }
     
+    @IBAction func submitTrackerPressed(sender: UIButton) {
+        
+        saveTrackerInstance(painIntensitySlider.value)
+        
+        
+        self.navigationController?.popToRootViewControllerAnimated(true)
+        
+    }
     
     
+    func saveTrackerInstance(intensityValue: Float){
+        
+        let theAppDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let manObjContext:NSManagedObjectContext = theAppDelegate.managedObjectContext!
+        
+        var newTrackerInstance:TrackerInstance = NSEntityDescription.insertNewObjectForEntityForName("TrackerInstance", inManagedObjectContext: manObjContext) as! TrackerInstance
+        
+        newTrackerInstance.painIntensity = intensityValue
+        
+        println("New instance created: \(newTrackerInstance.description)")
+        
+        manObjContext.save(nil)
+    }
     
 
     /*
