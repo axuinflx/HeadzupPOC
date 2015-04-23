@@ -121,7 +121,8 @@
                                 <rect key="frame" x="32" y="264" width="301" height="31"/>
                                 <color key="minimumTrackTintColor" red="0.65779156449999998" green="0.8344260725" blue="0.057679633399999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="intensityChanged:" destination="Miq-xg-s1S" eventType="valueChanged" id="k3J-dA-uxT"/>
+                                    <action selector="intensityChanged:" destination="Miq-xg-s1S" eventType="valueChanged" id="bPB-lg-kCE"/>
+                                    <action selector="sliderChanged:" destination="Miq-xg-s1S" eventType="touchUpInside" id="H6d-rx-UKM"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pain Intensity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulc-U8-lhN">
@@ -169,7 +170,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="painIntensityLabel" destination="OmS-OP-RHm" id="cdb-ao-LRL"/>
-                        <outlet property="painIntensitySlier" destination="3FQ-w8-1eb" id="TbL-NV-0zg"/>
+                        <outlet property="painIntensitySlider" destination="3FQ-w8-1eb" id="wdv-Q1-9v1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YNJ-fU-4Rv" userLabel="First Responder" sceneMemberID="firstResponder"/>

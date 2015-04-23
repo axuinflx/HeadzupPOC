@@ -13,7 +13,7 @@ class TrackerViewController: UIViewController {
     
     
     @IBOutlet weak var painIntensityLabel: UILabel!
-    @IBOutlet weak var painIntensitySlier: UISlider!
+    @IBOutlet weak var painIntensitySlider: UISlider!
     
     
     
@@ -30,17 +30,20 @@ class TrackerViewController: UIViewController {
     }
     
     
-    @IBAction func CancelButtonPressed(sender: UIButton) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
-    }
-    
-    
     @IBAction func intensityChanged(sender: UISlider) {
         
         painIntensityLabel.text = NSString(format: "%.0f", sender.value) as String
         
     }
     
+    
+    @IBAction func sliderChanged(sender: UISlider) {
+        
+        var sliderValue: Int
+        sliderValue = lroundf(sender.value)
+        painIntensitySlider.setValue(Float(sliderValue), animated: true)
+        
+    }
     
     
     
