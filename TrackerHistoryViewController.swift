@@ -15,7 +15,7 @@ class TrackerHistoryViewController: UIViewController {
     
     var trackerInstancesArray:Array<AnyObject> = []
     
-    let pointWidth: CGFloat = 30
+    let pointWidth: CGFloat = 15
     let pointGutter: CGFloat = 10
     var pointLeft: CGFloat = 0
 
