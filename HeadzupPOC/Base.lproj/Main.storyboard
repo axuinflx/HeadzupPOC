@@ -91,7 +91,16 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="Miq-xg-s1S" kind="push" id="XTS-WG-64D"/>
+                                    <segue destination="Miq-xg-s1S" kind="show" id="XTS-WG-64D"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhu-mo-kpl">
+                                <rect key="frame" x="281" y="594" width="49" height="30"/>
+                                <state key="normal" title="History">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="6ag-IS-mfS" kind="show" id="bcF-Fu-2uZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -105,10 +114,39 @@
             </objects>
             <point key="canvasLocation" x="883.5" y="1136.5"/>
         </scene>
+        <!--History-->
+        <scene sceneID="wwP-qn-wVZ">
+            <objects>
+                <viewController title="History" id="6ag-IS-mfS" customClass="TrackerHistoryViewController" customModule="HeadzupPOC" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ard-Tt-s60"/>
+                        <viewControllerLayoutGuide type="bottom" id="Avq-ZE-uPa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E0k-wL-NXh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4nH-47-SxK">
+                                <rect key="frame" x="16" y="122" width="343" height="240"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="History" id="ghB-4a-Zvv"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="graphOuterView" destination="4nH-47-SxK" id="12g-wV-hMU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lCL-hc-Fon" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1372.5" y="1558.5"/>
+        </scene>
         <!--Tracker-->
         <scene sceneID="Z0j-QM-bnA">
             <objects>
-                <viewController id="Miq-xg-s1S" customClass="TrackerViewController" customModule="HeadzupPOC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Tracker" id="Miq-xg-s1S" customClass="TrackerViewController" customModule="HeadzupPOC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1R5-zu-4gt"/>
                         <viewControllerLayoutGuide type="bottom" id="4ln-7a-vbe"/>
@@ -178,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YNJ-fU-4Rv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1359.5" y="1136.5"/>
+            <point key="canvasLocation" x="1372.5" y="753.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Qzn-jR-Ehy">

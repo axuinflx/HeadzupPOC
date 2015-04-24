@@ -7,28 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
 class MainViewController: UIViewController {
     
-//    override func viewWillAppear(animated: Bool) {
-//        var nav = self.navigationController?.navigationBar
-//        nav?.barStyle = UIBarStyle.Black //UIBarStyle.Black
-//        nav?.barTintColor = UIColor.whiteColor()
-//        nav?.tintColor = UIColor.blackColor()
-//        
-//        nav?.opaque = true
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-//        var imageView = UIImageView(frame: CGRectMake(500, 0, 200, 30))
-//        var image = UIImage(named: "HeadzupLogo");
-//        imageView.image = image;
-//        imageView.contentMode = UIViewContentMode.ScaleAspectFit
-//        self.navigationItem.titleView = imageView
     }
+
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

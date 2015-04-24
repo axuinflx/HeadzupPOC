@@ -17,6 +17,7 @@
 		6AB04C191AE6C24F00C083FA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB04C181AE6C24F00C083FA /* MainViewController.swift */; };
 		6AB04C1B1AE6C4F800C083FA /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB04C1A1AE6C4F800C083FA /* TrackerViewController.swift */; };
 		6AF1BDDF1AE938CB00991FDE /* TrackerInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF1BDDE1AE938CB00991FDE /* TrackerInstance.swift */; };
+		6AF1BDE11AEA815000991FDE /* TrackerHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF1BDE01AEA815000991FDE /* TrackerHistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		6AB04C181AE6C24F00C083FA /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		6AB04C1A1AE6C4F800C083FA /* TrackerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
 		6AF1BDDE1AE938CB00991FDE /* TrackerInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerInstance.swift; sourceTree = "<group>"; };
+		6AF1BDE01AEA815000991FDE /* TrackerHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackerHistoryViewController.swift; path = ../TrackerHistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,12 +87,13 @@
 		6AB04BF21AE694BE00C083FA /* HeadzupPOC */ = {
 			isa = PBXGroup;
 			children = (
+				6AB04BFC1AE694BE00C083FA /* Main.storyboard */,
 				6AB04BF51AE694BE00C083FA /* AppDelegate.swift */,
 				6AB04BFA1AE694BE00C083FA /* ViewController.swift */,
-				6AB04BFC1AE694BE00C083FA /* Main.storyboard */,
-				6AB04C1A1AE6C4F800C083FA /* TrackerViewController.swift */,
-				6AF1BDDE1AE938CB00991FDE /* TrackerInstance.swift */,
 				6AB04C181AE6C24F00C083FA /* MainViewController.swift */,
+				6AB04C1A1AE6C4F800C083FA /* TrackerViewController.swift */,
+				6AF1BDE01AEA815000991FDE /* TrackerHistoryViewController.swift */,
+				6AF1BDDE1AE938CB00991FDE /* TrackerInstance.swift */,
 				6AB04BFF1AE694BE00C083FA /* Images.xcassets */,
 				6AB04C011AE694BE00C083FA /* LaunchScreen.xib */,
 				6AB04BF71AE694BE00C083FA /* HeadzupPOC.xcdatamodeld */,
@@ -230,6 +233,7 @@
 				6AB04BF61AE694BE00C083FA /* AppDelegate.swift in Sources */,
 				6AB04C191AE6C24F00C083FA /* MainViewController.swift in Sources */,
 				6AF1BDDF1AE938CB00991FDE /* TrackerInstance.swift in Sources */,
+				6AF1BDE11AEA815000991FDE /* TrackerHistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
