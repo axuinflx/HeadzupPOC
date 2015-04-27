@@ -25,6 +25,12 @@ class MainViewController: UIViewController {
     }
     
 
+    @IBAction func logout(sender: AnyObject) {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("login") as? UIViewController
+        
+        self.presentViewController(vc!, animated: true, completion: nil)
+        
+    }
     /*
     // MARK: - Navigation
 
