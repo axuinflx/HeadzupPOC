@@ -27,6 +27,10 @@ import UIKit
         self.presentViewController(vc!, animated: true, completion: nil)
         
     }
+    
+    @IBAction func dismissKeyboard(sender: AnyObject) {
+        self.view.endEditing(true)
+    }
 
 }
 

@@ -12,35 +12,38 @@
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HeadzupLogo" translatesAutoresizingMaskIntoConstraints="NO" id="DBX-LU-zIu">
-                                <rect key="frame" x="45" y="77" width="233" height="60"/>
-                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PIN" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jhd-oO-ZSy">
-                                <rect key="frame" x="45" y="210" width="233" height="32"/>
+                                <rect key="frame" x="45" y="145" width="233" height="32"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="dismissKeyboard:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="A8u-fJ-15d"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5bi-PH-azw">
-                                <rect key="frame" x="45" y="242" width="233" height="2"/>
+                                <rect key="frame" x="45" y="177" width="233" height="2"/>
                                 <color key="backgroundColor" red="0.75686274509999996" green="0.90980392160000001" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2MB-dJ-1RX">
-                                <rect key="frame" x="45" y="280" width="233" height="32"/>
+                                <rect key="frame" x="45" y="215" width="233" height="32"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="dismissKeyboard:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="y7w-M1-Ikr"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lGB-l6-Jq3">
-                                <rect key="frame" x="45" y="312" width="233" height="2"/>
+                                <rect key="frame" x="45" y="247" width="233" height="2"/>
                                 <color key="backgroundColor" red="0.75686274509999996" green="0.90980392160000001" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFZ-4b-ZsL">
-                                <rect key="frame" x="45" y="392" width="233" height="40"/>
+                                <rect key="frame" x="45" y="375" width="233" height="57"/>
                                 <color key="backgroundColor" red="0.75686274509999996" green="0.90980392160000001" blue="0.062745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                 <state key="normal" title="Log in">
@@ -56,14 +59,20 @@
                                     <action selector="LoginButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Efz-wz-OXh"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HeadzupLogo" translatesAutoresizingMaskIntoConstraints="NO" id="DBX-LU-zIu">
+                                <rect key="frame" x="45" y="59" width="233" height="60"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="dismissKeyboard:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="g8b-2d-YvI"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="439.5" y="367.5"/>
+            <point key="canvasLocation" x="439" y="367"/>
         </scene>
         <!--Headzup-->
         <scene sceneID="SbK-W4-Udu">
