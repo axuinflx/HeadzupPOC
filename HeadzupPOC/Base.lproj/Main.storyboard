@@ -62,6 +62,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HeadzupLogo" translatesAutoresizingMaskIntoConstraints="NO" id="DBX-LU-zIu">
                                 <rect key="frame" x="45" y="59" width="233" height="60"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtI-Nl-NgR">
+                                <rect key="frame" x="45" y="302" width="233" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <connections>
@@ -70,6 +76,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="QSr-Dm-aUO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="feedbackLB" destination="mtI-Nl-NgR" id="n3Y-IP-ybp"/>
+                        <outlet property="phoneNumberTF" destination="2MB-dJ-1RX" id="rik-yl-8pu"/>
+                        <outlet property="pinTF" destination="jhd-oO-ZSy" id="Cfe-Pc-tHz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
