@@ -94,7 +94,7 @@ import UIKit
         }
         else
         {
-            feedbackLB.text = jsonDict["Message"] as! String!
+            feedbackLB.text = "Wrong credential, try again"//jsonDict["Message"] as! String!
             
         }
         
