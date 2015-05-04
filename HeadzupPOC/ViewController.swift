@@ -96,6 +96,13 @@ import UIKit
         {
             feedbackLB.text = "Wrong credential, try again"//jsonDict["Message"] as! String!
             
+            var location: LogLocation = FileLocation.getInstance("log.txt");
+            //location = ConsoleLocation();
+            var logger = Logger(name: "FileTester", level: .TRACE, logLocation: location);
+          
+            logger.error("Wrong credential, try again");
+            
+            
         }
         
     }
@@ -103,7 +110,13 @@ import UIKit
     
     func connection(connection: NSURLConnection, didFailWithError error: NSError) {
         
-        println("connection failed \(error.description))")
+        var location: LogLocation = FileLocation.getInstance("log.txt");
+        //location = ConsoleLocation();
+        var logger = Logger(name: "FileTester", level: .TRACE, logLocation: location);
+        
+        logger.error("connection failed \(error.description))");
+
+        //println("connection failed \(error.description))")
         
     }
     
