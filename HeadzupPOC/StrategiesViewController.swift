@@ -1,23 +1,20 @@
 //
-//  MainViewController.swift
+//  StrategiesViewController.swift
 //  HeadzupPOC
 //
-//  Created by Matt Solano on 4/21/15.
+//  Created by Matt Solano on 5/4/15.
 //  Copyright (c) 2015 mattSOLANO. All rights reserved.
 //
 
 import UIKit
-import CoreData
 
-class MainViewController: UIViewController {
-    
+class StrategiesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    }
 
-    
+        // Do any additional setup after loading the view.
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -25,12 +22,6 @@ class MainViewController: UIViewController {
     }
     
 
-    @IBAction func logout(sender: AnyObject) {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("login") as? UIViewController
-        
-        self.presentViewController(vc!, animated: true, completion: nil)
-        
-    }
     /*
     // MARK: - Navigation
 
