@@ -9,12 +9,15 @@
 import UIKit
 import CoreData
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    @IBOutlet weak var FaceCollectionView: UICollectionView!
+    
+    
+    let facesArray = ["Face1", "Face2", "Face3"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
     
@@ -31,6 +34,49 @@ class MainViewController: UIViewController {
         self.presentViewController(vc!, animated: true, completion: nil)
         
     }
+    
+    
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return facesArray.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell:faceCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("faceCollectionViewCell", forIndexPath: indexPath) as! faceCollectionViewCell
+        
+        let faceType = facesArray[indexPath.row]
+        cell.cellImageView.image = UIImage(named: faceType)
+        return cell
+    }
+
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        return CGSize(width: FaceCollectionView.bounds.size.width - 20, height: FaceCollectionView.bounds.size.height)
+    }
+    
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        println("\(indexPath.row)")
+    }
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        
+        
+        //scrollView.
+        var visibleFace = FaceCollectionView.indexPathsForVisibleItems()
+        var cells = FaceCollectionView.visibleCells()
+        
+        var idx = FaceCollectionView.indexPathForCell(cells[cells.count - 1] as! UICollectionViewCell)
+
+        println("visible = \(visibleFace)")
+        println("idx = \(idx!.row)")
+        
+        
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A08A3071AF125C700EC1A58 /* faceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A08A3061AF125C700EC1A58 /* faceCollectionViewCell.swift */; };
 		6AB04BF61AE694BE00C083FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB04BF51AE694BE00C083FA /* AppDelegate.swift */; };
 		6AB04BF91AE694BE00C083FA /* HeadzupPOC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6AB04BF71AE694BE00C083FA /* HeadzupPOC.xcdatamodeld */; };
 		6AB04BFB1AE694BE00C083FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB04BFA1AE694BE00C083FA /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A08A3061AF125C700EC1A58 /* faceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = faceCollectionViewCell.swift; sourceTree = "<group>"; };
 		6AB04BF01AE694BE00C083FA /* HeadzupPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadzupPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AB04BF41AE694BE00C083FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AB04BF51AE694BE00C083FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				6AB04BFC1AE694BE00C083FA /* Main.storyboard */,
+				6A08A3061AF125C700EC1A58 /* faceCollectionViewCell.swift */,
 				6AB04BF51AE694BE00C083FA /* AppDelegate.swift */,
 				6AB04BFA1AE694BE00C083FA /* ViewController.swift */,
 				6AB04C181AE6C24F00C083FA /* MainViewController.swift */,
@@ -232,6 +235,7 @@
 				6AB04BF91AE694BE00C083FA /* HeadzupPOC.xcdatamodeld in Sources */,
 				6AB04BF61AE694BE00C083FA /* AppDelegate.swift in Sources */,
 				6AB04C191AE6C24F00C083FA /* MainViewController.swift in Sources */,
+				6A08A3071AF125C700EC1A58 /* faceCollectionViewCell.swift in Sources */,
 				6AF1BDDF1AE938CB00991FDE /* TrackerInstance.swift in Sources */,
 				6AF1BDE11AEA815000991FDE /* TrackerHistoryViewController.swift in Sources */,
 			);
