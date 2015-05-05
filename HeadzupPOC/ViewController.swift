@@ -88,7 +88,7 @@ import UIKit
             
         {
             
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBarController") as? UIViewController
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MainNavigation") as? UIViewController
             
             self.presentViewController(vc!, animated: true, completion: nil)
         }
