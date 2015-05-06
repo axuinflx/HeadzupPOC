@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1485D8001AFAA3DE00D8764F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1485D7FF1AFAA3DD00D8764F /* DataManager.swift */; };
+		1485D8031AFAA49B00D8764F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1485D7FF1AFAA3DD00D8764F /* DataManager.swift */; };
+		1485D8081AFAAE6600D8764F /* MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1485D8071AFAAE6600D8764F /* MetaData.swift */; };
+		1485D8091AFAAE6A00D8764F /* MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1485D8071AFAAE6600D8764F /* MetaData.swift */; };
 		14C771991AF7B39A00EA59CD /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C771981AF7B39A00EA59CD /* Formatter.swift */; };
 		14C7719B1AF7B3CB00EA59CD /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7719A1AF7B3CB00EA59CD /* Logger.swift */; };
 		14C7719D1AF7B3F400EA59CD /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7719C1AF7B3F400EA59CD /* LogLevel.swift */; };
@@ -39,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1485D7FF1AFAA3DD00D8764F /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		1485D8071AFAAE6600D8764F /* MetaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaData.swift; sourceTree = "<group>"; };
 		14C771981AF7B39A00EA59CD /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		14C7719A1AF7B3CB00EA59CD /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		14C7719C1AF7B3F400EA59CD /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
@@ -83,6 +89,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1485D7FE1AFAA3C600D8764F /* HeadzupData */ = {
+			isa = PBXGroup;
+			children = (
+				1485D8071AFAAE6600D8764F /* MetaData.swift */,
+				1485D7FF1AFAA3DD00D8764F /* DataManager.swift */,
+			);
+			name = HeadzupData;
+			sourceTree = "<group>";
+		};
 		14C771971AF7B33A00EA59CD /* Logger */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +133,7 @@
 		6AB04BF21AE694BE00C083FA /* HeadzupPOC */ = {
 			isa = PBXGroup;
 			children = (
+				1485D7FE1AFAA3C600D8764F /* HeadzupData */,
 				14C771971AF7B33A00EA59CD /* Logger */,
 				6AB04BFC1AE694BE00C083FA /* Main.storyboard */,
 				6A45E6761AF7E55600EE0E0C /* HomeViewController.swift */,
@@ -262,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AB04C1B1AE6C4F800C083FA /* TrackerViewController.swift in Sources */,
+				1485D8001AFAA3DE00D8764F /* DataManager.swift in Sources */,
 				6AB04BFB1AE694BE00C083FA /* ViewController.swift in Sources */,
 				6AB04BF91AE694BE00C083FA /* HeadzupPOC.xcdatamodeld in Sources */,
 				14C7719F1AF7B43600EA59CD /* LogLocation.swift in Sources */,
@@ -273,6 +290,7 @@
 				6AF1BDDF1AE938CB00991FDE /* TrackerInstance.swift in Sources */,
 				14C771991AF7B39A00EA59CD /* Formatter.swift in Sources */,
 				6AF1BDE11AEA815000991FDE /* TrackerHistoryViewController.swift in Sources */,
+				1485D8081AFAAE6600D8764F /* MetaData.swift in Sources */,
 				6A45E6791AF7E56C00EE0E0C /* StrategiesViewController.swift in Sources */,
 				14C771A41AF7B49E00EA59CD /* Swell.swift in Sources */,
 				14C771A11AF7B45B00EA59CD /* LogSelector.swift in Sources */,
@@ -284,6 +302,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AB04C0F1AE694BE00C083FA /* HeadzupPOCTests.swift in Sources */,
+				1485D8031AFAA49B00D8764F /* DataManager.swift in Sources */,
+				1485D8091AFAAE6A00D8764F /* MetaData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

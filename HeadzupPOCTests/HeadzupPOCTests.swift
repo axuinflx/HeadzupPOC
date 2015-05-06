@@ -9,6 +9,7 @@
 import UIKit
 import XCTest
 import HeadzupPOC
+import CoreData
 
 public class SwellTestLocation: LogLocation {
     var logged: Bool = false
@@ -420,5 +421,55 @@ class HeadzupPOCTests: XCTestCase {
             }
         }
     }
+    
+    func setUpInMemoryManagedObjectContext() -> NSManagedObjectContext {
+        
+        let managedObjectModel = NSManagedObjectModel.mergedModelFromBundles([NSBundle.mainBundle()])!
+        
+        
+        
+        let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel)
+        
+        persistentStoreCoordinator.addPersistentStoreWithType(NSInMemoryStoreType, configuration: nil, URL: nil, options: nil, error: nil)
+        
+        
+        
+        let managedObjectContext = NSManagedObjectContext()
+        
+        managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
+        
+        
+        
+        return managedObjectContext
+        
+    }
+    
+    
+    
+    func testSaveMetaData() {
+        
+
+        
+        //let moc = NSManagedObjectContext()
+        
+        
+        let managedObjectContext = setUpInMemoryManagedObjectContext()
+        DataManager.saveMetaData("PhoneNumber", value: "1234567890", isSecured: false, moc: managedObjectContext)
+        // model setup
+        //XCTAssert
+        
+    }
+    
+    func testGetMetaData()
+        
+    {
+        
+        let managedObjectContext =  setUpInMemoryManagedObjectContext()
+        
+        DataManager.getMetaData("PhoneNumber", moc: managedObjectContext)
+        
+    }
+    
+
 
 }
