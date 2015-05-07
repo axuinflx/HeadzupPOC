@@ -45,7 +45,7 @@ public class DataManager
         
     }
     
-     public func getMetaData(name: String) -> MetaData{
+     public func getMetaData(name: String) -> MetaData?{
         // check if given meta exists
         let fetchRequest = NSFetchRequest(entityName: "MetaData")
         fetchRequest.predicate = NSPredicate(format: "name == \"\(name)\"")
@@ -56,14 +56,23 @@ public class DataManager
         
         if (fetchResults?.count>0){
             // newMetaData
-            println("metadata exists before saving: \(fetchResults?[0])")
+            println("found metadata: \(fetchResults?[0])")
             theMetaData = fetchResults?[0]
         } else {
             println("Cannot find matching MetaData with name of \(name)")
         }
-        return theMetaData!
+        return theMetaData
     }
     
+    
+    public func getAllMetaData() -> [MetaData]?{
+        // check if given meta exists
+        let fetchRequest = NSFetchRequest(entityName: "MetaData")
+        let fetchResults = dbContext!.executeFetchRequest(fetchRequest, error: nil) as? [MetaData]
+        
+        println("found \(fetchResults?.count) meta data")
+        return fetchResults
+    }
     
     
 }

@@ -18,8 +18,12 @@ import CoreData
     var theConnnection: NSURLConnection?
     
     var webServiceData:NSMutableData?
+    var dataMgr: DataManager?  // initialized in viewDidLoad
+    var loginStatus :String?
+    var userPhoneNumber : String?
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -31,8 +35,49 @@ import CoreData
         //locNotification.
         UIApplication.sharedApplication().scheduleLocalNotification(locNotification)
         
+        // init data manager
+        let theAppDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let manObjContext:NSManagedObjectContext = theAppDelegate.managedObjectContext!
+        dataMgr = DataManager(objContext: manObjContext)
+        
+        // list all meta data
+        var ms  = dataMgr?.getAllMetaData()
+        
+        // check login status
+        var status = dataMgr?.getMetaData(MetaDataKeys.LoginStatus)
+        if status != nil {
+            switch status!.value {
+            case LoginStatus.LoggedOut :
+                loginStatus = LoginStatus.LoggedOut
+                 println ("user has logged out")
+                
+                 // load saved metadata
+                 var m = dataMgr?.getMetaData(MetaDataKeys.PhoneNumber)
+                if m != nil {
+                    self.userPhoneNumber = m?.value
+                    
+                    // hide ui TF
+                    self.phoneNumberTF.hidden = true
+                }
+                
+            default:
+                loginStatus = LoginStatus.LoggedIn
+                println ("user has logged in")
+                
+                // go to home page directly
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBarController") as? UIViewController
+                
+                self.presentViewController(vc!, animated: true, completion: nil)
+                
+            }
+            
+            
+        } else {
+            loginStatus = LoginStatus.NeverLoggedIn
+            println ("user has never logged in")
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -68,9 +113,9 @@ import CoreData
         let manObjContext:NSManagedObjectContext = theAppDelegate.managedObjectContext!
         
         var dm = DataManager(objContext: manObjContext)
-        dm.saveMetaData("Phone", value: "222", isSecured: false)
+        dm.saveMetaData(MetaDataKeys.PIN, value: "333", isSecured: false)
         
-        dm.getMetaData("Phone")
+        var m = dm.getMetaData(MetaDataKeys.PIN)
         
         
     }
@@ -78,20 +123,27 @@ import CoreData
     @IBAction func LoginButtonPressed(sender: UIButton) {
        
         
-        testMetaData()
+        //testMetaData()
         
-        let userPhoneNumber = phoneNumberTF.text
+        
         let userPassword = pinTF.text
         
+        if loginStatus == LoginStatus.LoggedOut  {
+            var m = dataMgr?.getMetaData(MetaDataKeys.PhoneNumber)
+            if m != nil {
+                userPhoneNumber = m?.value
+            }
+        } else {
+            userPhoneNumber = phoneNumberTF.text
+        }
         
-        
-        if(userPhoneNumber.isEmpty || userPassword.isEmpty)
+        if((userPhoneNumber!.isEmpty && loginStatus == LoginStatus.NeverLoggedIn) || userPassword.isEmpty)
         {
             displayAlertMessage("All fields are required.")
             return
         }
         
-        let parametersString = "email=\(userPhoneNumber)&password=\(userPassword)"
+        let parametersString = "email=\(userPhoneNumber!)&password=\(userPassword)"
         var url:String = "http://10.200.20.86/api/mobileservice/Login?\(parametersString)"
         
         let theURL = NSURL(string: url)!
@@ -130,6 +182,15 @@ import CoreData
         {
             
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBarController") as? UIViewController
+            
+            // save user info to local 
+            dataMgr?.saveMetaData(MetaDataKeys.PhoneNumber, value: userPhoneNumber!, isSecured: true)
+            dataMgr?.saveMetaData(MetaDataKeys.PIN, value: pinTF.text, isSecured: true)
+            dataMgr?.saveMetaData(MetaDataKeys.LoginStatus, value: LoginStatus.LoggedIn, isSecured: true)
+            
+            
+            // list all meta data
+            var ms  = dataMgr?.getAllMetaData()
             
             self.presentViewController(vc!, animated: true, completion: nil)
         }

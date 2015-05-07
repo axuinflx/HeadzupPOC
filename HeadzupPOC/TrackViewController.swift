@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import CoreData
 
 class TrackViewController: UIViewController {
 
+    
+    var dataMgr: DataManager? 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // init data manager
+        let theAppDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let manObjContext:NSManagedObjectContext = theAppDelegate.managedObjectContext!
+        dataMgr = DataManager(objContext: manObjContext)
         
     }
     
@@ -23,6 +31,10 @@ class TrackViewController: UIViewController {
     
     @IBAction func logout(sender: AnyObject) {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("login") as? UIViewController
+        
+        // update login status
+         dataMgr?.saveMetaData(MetaDataKeys.LoginStatus, value: LoginStatus.LoggedOut, isSecured: true)
+        
         
         self.presentViewController(vc!, animated: true, completion: nil)
         

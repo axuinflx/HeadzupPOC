@@ -3,7 +3,7 @@
 //  HeadzupPOC
 //
 //  Created by Allen Xu on 5/6/15.
-//  Copyright (c) 2015 mattSOLANO. All rights reserved.
+//  Copyright (c) 2015 Inflexxion. All rights reserved.
 //
 
 import Foundation
@@ -15,4 +15,11 @@ public class MetaData: NSManagedObject {
     @NSManaged var value: String
     @NSManaged var isSecured: NSNumber
 
+}
+
+public struct MetaDataKeys{
+    public static let PhoneNumber = "Phone"
+    public static let PIN = "PIN"
+    public static let NickName = "NickName"
+    public static let LoginStatus = "LoginStatus"
 }
