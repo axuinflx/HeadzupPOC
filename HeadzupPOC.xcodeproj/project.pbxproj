@@ -26,6 +26,8 @@
 		6AB04C1B1AE6C4F800C083FA /* TrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB04C1A1AE6C4F800C083FA /* TrackerViewController.swift */; };
 		6AF1BDDF1AE938CB00991FDE /* TrackerInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF1BDDE1AE938CB00991FDE /* TrackerInstance.swift */; };
 		6AF1BDE11AEA815000991FDE /* TrackerHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF1BDE01AEA815000991FDE /* TrackerHistoryViewController.swift */; };
+		9F69F1D81AFAC34E00262DD8 /* MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F69F1D71AFAC34E00262DD8 /* MetaData.swift */; };
+		9F69F1DA1AFAC7E000262DD8 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F69F1D91AFAC7E000262DD8 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		6AB04C1A1AE6C4F800C083FA /* TrackerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerViewController.swift; sourceTree = "<group>"; };
 		6AF1BDDE1AE938CB00991FDE /* TrackerInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackerInstance.swift; sourceTree = "<group>"; };
 		6AF1BDE01AEA815000991FDE /* TrackerHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TrackerHistoryViewController.swift; path = ../TrackerHistoryViewController.swift; sourceTree = "<group>"; };
+		9F69F1D71AFAC34E00262DD8 /* MetaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaData.swift; sourceTree = "<group>"; };
+		9F69F1D91AFAC7E000262DD8 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,7 @@
 		6AB04BF21AE694BE00C083FA /* HeadzupPOC */ = {
 			isa = PBXGroup;
 			children = (
+				9F69F1D61AFAC2B200262DD8 /* HeadzupData */,
 				14C771971AF7B33A00EA59CD /* Logger */,
 				6AB04BFC1AE694BE00C083FA /* Main.storyboard */,
 				6A45E6761AF7E55600EE0E0C /* HomeViewController.swift */,
@@ -159,6 +164,15 @@
 				6AB04C0D1AE694BE00C083FA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9F69F1D61AFAC2B200262DD8 /* HeadzupData */ = {
+			isa = PBXGroup;
+			children = (
+				9F69F1D71AFAC34E00262DD8 /* MetaData.swift */,
+				9F69F1D91AFAC7E000262DD8 /* DataManager.swift */,
+			);
+			name = HeadzupData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,7 +284,9 @@
 				6AB04BF61AE694BE00C083FA /* AppDelegate.swift in Sources */,
 				14C7719B1AF7B3CB00EA59CD /* Logger.swift in Sources */,
 				6A45E67B1AF7E9CC00EE0E0C /* TrackViewController.swift in Sources */,
+				9F69F1DA1AFAC7E000262DD8 /* DataManager.swift in Sources */,
 				6AF1BDDF1AE938CB00991FDE /* TrackerInstance.swift in Sources */,
+				9F69F1D81AFAC34E00262DD8 /* MetaData.swift in Sources */,
 				14C771991AF7B39A00EA59CD /* Formatter.swift in Sources */,
 				6AF1BDE11AEA815000991FDE /* TrackerHistoryViewController.swift in Sources */,
 				6A45E6791AF7E56C00EE0E0C /* StrategiesViewController.swift in Sources */,

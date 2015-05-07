@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 @IBDesignable class ViewController: UIViewController {
 
@@ -36,9 +37,49 @@ import UIKit
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    func testMetaData() {
+        
+        /*
+         // save
+            let theAppDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            
+            let manObjContext:NSManagedObjectContext = theAppDelegate.managedObjectContext!
+            
+            var newMetaData:MetaData = NSEntityDescription.insertNewObjectForEntityForName("MetaData", inManagedObjectContext: manObjContext) as! MetaData
+            
+            newMetaData.name = "Phone"
+        newMetaData.value = "1234567890"
+        newMetaData.isSecured = false
+            
+            println("New meta created: \(newMetaData.description)")
+            
+            manObjContext.save(nil)
+        
+        // read
+       
+        let fetchRequest = NSFetchRequest(entityName: "MetaData")
+        var mlist = manObjContext.executeFetchRequest(fetchRequest, error: nil)!
+        */
+        
+        let theAppDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let manObjContext:NSManagedObjectContext = theAppDelegate.managedObjectContext!
+        
+        var dm = DataManager(objContext: manObjContext)
+        dm.saveMetaData("Phone", value: "222", isSecured: false)
+        
+        dm.getMetaData("Phone")
+        
+        
+    }
 
     @IBAction func LoginButtonPressed(sender: UIButton) {
        
+        
+        testMetaData()
+        
         let userPhoneNumber = phoneNumberTF.text
         let userPassword = pinTF.text
         
