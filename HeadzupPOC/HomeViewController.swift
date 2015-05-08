@@ -9,16 +9,34 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    
+    @IBOutlet weak var FaceOuterView: UIView!
+    
+    struct Face {
+        let faceView: FaceView
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        var firstFace = createFace("Face1")
+        FaceOuterView.addSubview(firstFace.faceView)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    private func createFace(image: String) -> Face {
+        let faceView = FaceView()
+        faceView.image = image
+        return Face(faceView:faceView)
     }
     
 
