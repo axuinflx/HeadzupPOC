@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		145E9F9D1AFCFB4000D313C8 /* CoreDataTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E9F9C1AFCFB4000D313C8 /* CoreDataTestCase.swift */; };
+		145E9F9F1AFCFB8300D313C8 /* MetaDataTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E9F9E1AFCFB8300D313C8 /* MetaDataTestCase.swift */; };
+		145E9FA01AFCFBBA00D313C8 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F69F1D91AFAC7E000262DD8 /* DataManager.swift */; };
+		145E9FA11AFCFBBD00D313C8 /* MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F69F1D71AFAC34E00262DD8 /* MetaData.swift */; };
 		14C771991AF7B39A00EA59CD /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C771981AF7B39A00EA59CD /* Formatter.swift */; };
 		14C7719B1AF7B3CB00EA59CD /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7719A1AF7B3CB00EA59CD /* Logger.swift */; };
 		14C7719D1AF7B3F400EA59CD /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7719C1AF7B3F400EA59CD /* LogLevel.swift */; };
@@ -43,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		145E9F9C1AFCFB4000D313C8 /* CoreDataTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTestCase.swift; sourceTree = "<group>"; };
+		145E9F9E1AFCFB8300D313C8 /* MetaDataTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaDataTestCase.swift; sourceTree = "<group>"; };
 		14C771981AF7B39A00EA59CD /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		14C7719A1AF7B3CB00EA59CD /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		14C7719C1AF7B3F400EA59CD /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
@@ -155,6 +161,8 @@
 		6AB04C0B1AE694BE00C083FA /* HeadzupPOCTests */ = {
 			isa = PBXGroup;
 			children = (
+				145E9F9C1AFCFB4000D313C8 /* CoreDataTestCase.swift */,
+				145E9F9E1AFCFB8300D313C8 /* MetaDataTestCase.swift */,
 				6AB04C0E1AE694BE00C083FA /* HeadzupPOCTests.swift */,
 				6AB04C0C1AE694BE00C083FA /* Supporting Files */,
 			);
@@ -305,6 +313,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AB04C0F1AE694BE00C083FA /* HeadzupPOCTests.swift in Sources */,
+				145E9FA01AFCFBBA00D313C8 /* DataManager.swift in Sources */,
+				145E9FA11AFCFBBD00D313C8 /* MetaData.swift in Sources */,
+				145E9F9D1AFCFB4000D313C8 /* CoreDataTestCase.swift in Sources */,
+				145E9F9F1AFCFB8300D313C8 /* MetaDataTestCase.swift in Sources */,
 				9F69F1DD1AFBF3A100262DD8 /* HeadzupConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
