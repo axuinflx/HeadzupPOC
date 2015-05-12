@@ -69,7 +69,7 @@
                                         <rect key="frame" x="10" y="63" width="233" height="32"/>
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                        <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7aI-G0-K5W">
                                         <rect key="frame" x="11" y="95" width="233" height="2"/>
@@ -95,6 +95,7 @@
                     <connections>
                         <outlet property="FirstTimeCredsView" destination="sJj-dd-tdN" id="i2K-TU-xwN"/>
                         <outlet property="feedbackLB" destination="mtI-Nl-NgR" id="n3Y-IP-ybp"/>
+                        <outlet property="nickNameTF" destination="1SQ-fV-00P" id="m9M-6P-aKm"/>
                         <outlet property="phoneNumberTF" destination="2MB-dJ-1RX" id="rik-yl-8pu"/>
                         <outlet property="pinTF" destination="jhd-oO-ZSy" id="Cfe-Pc-tHz"/>
                     </connections>

@@ -13,11 +13,13 @@ public class AppContext {
     public static var userName = ""
     public static var loginStatus = ""
     public static var phoneNumber = ""
+    public static var pin = ""
     
     public static func list() {
         println("loginStatus = \(loginStatus)")
         println("phone = \(phoneNumber)")
         println("userName = \(userName)")
+        println("pin = \(pin)")
     }
     
 }

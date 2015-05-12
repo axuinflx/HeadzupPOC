@@ -13,16 +13,13 @@ import CoreData
 
     @IBOutlet weak var phoneNumberTF: UITextField!
     @IBOutlet weak var pinTF: UITextField!
-    
+    @IBOutlet weak var nickNameTF: UITextField!
     @IBOutlet weak var FirstTimeCredsView: UIView!
-    
-    
     @IBOutlet weak var feedbackLB: UILabel!
-    var theConnnection: NSURLConnection?
     
+    var theConnnection: NSURLConnection?
     var webServiceData:NSMutableData?
     var dataMgr: DataManager?  // initialized in viewDidLoad
-    //var loginStatus :String?
     var userPhoneNumber : String?
     
     override func viewDidLoad() {
@@ -55,72 +52,25 @@ import CoreData
         // Dispose of any resources that can be recreated.
     }
     
-    
     override func viewDidAppear(animated: Bool) {
-        
         if AppContext.loginStatus == LoginStatus.LoggedIn {
             println ("user has logged in")
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBarController") as? UIViewController
             
             self.presentViewController(vc!, animated: true, completion: nil)
-
         }
-    }
-    
-    func testMetaData() {
-        
-        /*
-         // save
-            let theAppDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            
-            let manObjContext:NSManagedObjectContext = theAppDelegate.managedObjectContext!
-            
-            var newMetaData:MetaData = NSEntityDescription.insertNewObjectForEntityForName("MetaData", inManagedObjectContext: manObjContext) as! MetaData
-            
-            newMetaData.name = "Phone"
-        newMetaData.value = "1234567890"
-        newMetaData.isSecured = false
-            
-            println("New meta created: \(newMetaData.description)")
-            
-            manObjContext.save(nil)
-        
-        // read
-       
-        let fetchRequest = NSFetchRequest(entityName: "MetaData")
-        var mlist = manObjContext.executeFetchRequest(fetchRequest, error: nil)!
-        */
-        
-        let theAppDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let manObjContext:NSManagedObjectContext = theAppDelegate.managedObjectContext!
-        
-        var dm = DataManager(objContext: manObjContext)
-        dm.saveMetaData(MetaDataKeys.PIN, value: "333", isSecured: false)
-        
-        var m = dm.getMetaData(MetaDataKeys.PIN)
-        
-        
     }
 
     @IBAction func LoginButtonPressed(sender: UIButton) {
-       
-        
-        //testMetaData()
-        
-        
         let userPassword = pinTF.text
         
         if AppContext.loginStatus == LoginStatus.LoggedOut  {
-            var m = dataMgr?.getMetaData(MetaDataKeys.PhoneNumber)
-            if m != nil {
-                userPhoneNumber = m?.value
-            }
+            userPhoneNumber = AppContext.phoneNumber
         } else {
             userPhoneNumber = phoneNumberTF.text
         }
         
-        if((userPhoneNumber!.isEmpty && AppContext.loginStatus == LoginStatus.NeverLoggedIn) || userPassword.isEmpty)
+        if((userPhoneNumber!.isEmpty && nickNameTF.text.isEmpty && AppContext.loginStatus == LoginStatus.NeverLoggedIn) || userPassword.isEmpty)
         {
             displayAlertMessage("All fields are required.")
             return
@@ -134,15 +84,13 @@ import CoreData
         
         theConnnection = NSURLConnection(request: req, delegate: self, startImmediately: true)
         
-        
-        
-        
     }
+    
     func connection(connection: NSURLConnection, didReceiveResponse response: NSURLResponse)
     {
         webServiceData = NSMutableData()
-        
     }
+    
     func connection(connection: NSURLConnection, didReceiveData data: NSData)
     {
         webServiceData?.appendData(data)
@@ -160,21 +108,22 @@ import CoreData
         
         var status = jsonDict["Status"] as! NSInteger!
         
-        if(status == 1)
-            
+        if(status == 1) // pass authentication
         {
-            
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBarController") as? UIViewController
-            
-            // save user info to local 
-            dataMgr?.saveMetaData(MetaDataKeys.PhoneNumber, value: userPhoneNumber!, isSecured: true)
-            dataMgr?.saveMetaData(MetaDataKeys.PIN, value: pinTF.text, isSecured: true)
+            // update cache and local db
+            if AppContext.loginStatus == "" {
+                dataMgr?.saveMetaData(MetaDataKeys.PhoneNumber, value: phoneNumberTF.text, isSecured: true)
+                dataMgr?.saveMetaData(MetaDataKeys.PIN, value: pinTF.text, isSecured: true)
+                dataMgr?.saveMetaData(MetaDataKeys.NickName, value: nickNameTF.text, isSecured: true)
+                AppContext.phoneNumber = phoneNumberTF.text
+                AppContext.pin = pinTF.text
+                AppContext.userName = nickNameTF.text
+            }
             dataMgr?.saveMetaData(MetaDataKeys.LoginStatus, value: LoginStatus.LoggedIn, isSecured: true)
+            AppContext.loginStatus = LoginStatus.LoggedIn
             
-            
-            // list all meta data
-            var ms  = dataMgr?.getAllMetaData()
-            
+            // go to landing page
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBarController") as? UIViewController
             self.presentViewController(vc!, animated: true, completion: nil)
         }
         else
@@ -186,12 +135,8 @@ import CoreData
             var logger = Logger(name: "FileTester", level: .TRACE, logLocation: location);
           
             logger.error("Wrong credential, try again");
-            
-            
         }
-        
     }
-
     
     func connection(connection: NSURLConnection, didFailWithError error: NSError) {
         
@@ -202,7 +147,6 @@ import CoreData
         logger.error("connection failed \(error.description))");
 
         //println("connection failed \(error.description))")
-        
     }
     
     @IBAction func dismissKeyboard(sender: AnyObject) {
