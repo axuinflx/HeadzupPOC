@@ -192,6 +192,10 @@
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="acP-lO-hux">
                                 <rect key="frame" x="53" y="56" width="214" height="214"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Fda-kC-cRM" appends="YES" id="8pd-E9-4Ql"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -203,6 +207,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Myd-7j-Jwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="Fda-kC-cRM">
+                    <connections>
+                        <action selector="SwipedLeft:" destination="GuT-VK-mDJ" id="UEI-TI-jIi"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="213" y="-294"/>
         </scene>
