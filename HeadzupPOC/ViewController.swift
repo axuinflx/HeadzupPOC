@@ -19,7 +19,7 @@ import CoreData
     
     var webServiceData:NSMutableData?
     var dataMgr: DataManager?  // initialized in viewDidLoad
-    var loginStatus :String?
+    //var loginStatus :String?
     var userPhoneNumber : String?
     
     override func viewDidLoad() {
@@ -40,41 +40,9 @@ import CoreData
         let manObjContext:NSManagedObjectContext = theAppDelegate.managedObjectContext!
         dataMgr = DataManager(objContext: manObjContext)
         
-        // list all meta data
-        var ms  = dataMgr?.getAllMetaData()
-        
-        // check login status
-        var status = dataMgr?.getMetaData(MetaDataKeys.LoginStatus)
-        if status != nil {
-            switch status!.value {
-            case LoginStatus.LoggedOut :
-                loginStatus = LoginStatus.LoggedOut
-                 println ("user has logged out")
-                
-                 // load saved metadata
-                 var m = dataMgr?.getMetaData(MetaDataKeys.PhoneNumber)
-                if m != nil {
-                    self.userPhoneNumber = m?.value
-                    
-                    // hide ui TF
-                    self.phoneNumberTF.hidden = true
-                }
-                
-            default:
-                loginStatus = LoginStatus.LoggedIn
-                println ("user has logged in")
-                
-                // go to home page directly
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBarController") as? UIViewController
-                
-                self.presentViewController(vc!, animated: true, completion: nil)
-                
-            }
-            
-            
-        } else {
-            loginStatus = LoginStatus.NeverLoggedIn
-            println ("user has never logged in")
+        if AppContext.loginStatus == LoginStatus.LoggedOut {
+            println ("user has logged out")
+            self.phoneNumberTF.hidden = true
         }
     }
     
@@ -83,6 +51,17 @@ import CoreData
         // Dispose of any resources that can be recreated.
     }
     
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        if AppContext.loginStatus == LoginStatus.LoggedIn {
+            println ("user has logged in")
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabBarController") as? UIViewController
+            
+            self.presentViewController(vc!, animated: true, completion: nil)
+
+        }
+    }
     
     func testMetaData() {
         
@@ -128,7 +107,7 @@ import CoreData
         
         let userPassword = pinTF.text
         
-        if loginStatus == LoginStatus.LoggedOut  {
+        if AppContext.loginStatus == LoginStatus.LoggedOut  {
             var m = dataMgr?.getMetaData(MetaDataKeys.PhoneNumber)
             if m != nil {
                 userPhoneNumber = m?.value
@@ -137,7 +116,7 @@ import CoreData
             userPhoneNumber = phoneNumberTF.text
         }
         
-        if((userPhoneNumber!.isEmpty && loginStatus == LoginStatus.NeverLoggedIn) || userPassword.isEmpty)
+        if((userPhoneNumber!.isEmpty && AppContext.loginStatus == LoginStatus.NeverLoggedIn) || userPassword.isEmpty)
         {
             displayAlertMessage("All fields are required.")
             return

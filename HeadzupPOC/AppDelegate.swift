@@ -21,6 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settings = UIUserNotificationSettings(forTypes: .Alert, categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         
+        let theAppDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let manObjContext:NSManagedObjectContext = theAppDelegate.managedObjectContext!
+        var dataMgr = DataManager(objContext: manObjContext)
+        
+        // list all meta data
+        AppContext.loginStatus = dataMgr.getMetaDataValue(MetaDataKeys.LoginStatus)
+        AppContext.phoneNumber = dataMgr.getMetaDataValue(MetaDataKeys.PhoneNumber)
+        AppContext.userName = dataMgr.getMetaDataValue(MetaDataKeys.NickName)
+        AppContext.list()
       
         return true
     }
@@ -37,10 +46,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        // init data manager
+        let theAppDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let manObjContext:NSManagedObjectContext = theAppDelegate.managedObjectContext!
+        var dataMgr = DataManager(objContext: manObjContext)
+        
+        // list all meta data
+        AppContext.loginStatus = dataMgr.getMetaDataValue(MetaDataKeys.LoginStatus)
+        AppContext.phoneNumber = dataMgr.getMetaDataValue(MetaDataKeys.PhoneNumber)
+        AppContext.userName = dataMgr.getMetaDataValue(MetaDataKeys.NickName)
+         AppContext.list()
+        
+        
+        var status = AppContext.loginStatus
+        switch status {
+        case LoginStatus.LoggedOut :
+            println ("user has logged out")
+            
+        default :
+            println ("user has logged in")
+            // go to home page directly
+            
+        }
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        
     }
 
     func applicationWillTerminate(application: UIApplication) {

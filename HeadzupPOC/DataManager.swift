@@ -64,6 +64,17 @@ public class DataManager
         return theMetaData
     }
     
+    // Return meta data string value. Empty string will be return if such meta data doesn't exist
+    public func getMetaDataValue(name: String) -> String {
+        
+        var m = getMetaData(name)
+        if m != nil {
+            return m!.value
+        }
+        return ""
+        
+    }
+    
     
     public func getAllMetaData() -> [MetaData]?{
         // check if given meta exists

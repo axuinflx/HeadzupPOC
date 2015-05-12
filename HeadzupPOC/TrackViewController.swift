@@ -34,7 +34,7 @@ class TrackViewController: UIViewController {
         
         // update login status
          dataMgr?.saveMetaData(MetaDataKeys.LoginStatus, value: LoginStatus.LoggedOut, isSecured: true)
-        
+        AppContext.loginStatus = LoginStatus.LoggedOut
         
         self.presentViewController(vc!, animated: true, completion: nil)
         
