@@ -14,6 +14,9 @@ import CoreData
     @IBOutlet weak var phoneNumberTF: UITextField!
     @IBOutlet weak var pinTF: UITextField!
     
+    @IBOutlet weak var FirstTimeCredsView: UIView!
+    
+    
     @IBOutlet weak var feedbackLB: UILabel!
     var theConnnection: NSURLConnection?
     
@@ -42,7 +45,8 @@ import CoreData
         
         if AppContext.loginStatus == LoginStatus.LoggedOut {
             println ("user has logged out")
-            self.phoneNumberTF.hidden = true
+            //self.phoneNumberTF.hidden = true
+            self.FirstTimeCredsView.hidden = true
         }
     }
     
