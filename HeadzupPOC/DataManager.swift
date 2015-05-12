@@ -1,15 +1,9 @@
 import Foundation
-
 import CoreData
 
-
-
 public class DataManager
-    
 {
-
     var dbContext: NSManagedObjectContext!
-    
     
     public init(objContext: NSManagedObjectContext) {
         self.dbContext = objContext
@@ -19,30 +13,23 @@ public class DataManager
         // check if given meta exists
         let fetchRequest = NSFetchRequest(entityName: "MetaData")
         fetchRequest.predicate = NSPredicate(format: "name == \"\(name)\"")
-        
         let fetchResults = dbContext!.executeFetchRequest(fetchRequest, error: nil) as? [MetaData]
         
         var theMetaData:MetaData!
-        
         if (fetchResults?.count>0){
-           // newMetaData
-            println("metadata exists before saving: \(fetchResults?[0])")
             theMetaData = fetchResults?[0]
+            println("found metadata \(theMetaData.toString())")
         } else {
-        
-        theMetaData = NSEntityDescription.insertNewObjectForEntityForName("MetaData", inManagedObjectContext: dbContext) as! MetaData
+            println("creating new metadata: \(name) : \(value)")
+            theMetaData = NSEntityDescription.insertNewObjectForEntityForName("MetaData", inManagedObjectContext: dbContext) as! MetaData
         }
         
         theMetaData.name = name
         theMetaData.value = value
         theMetaData.isSecured = isSecured
-            
-            //println("New meta created: \(theMetaData.description)")
-            
-            dbContext.save(nil)
-           println("New meta created: \(theMetaData.description)")
-        
-        
+
+        dbContext.save(nil)
+        println("meta saved: \(theMetaData.toString())")
     }
     
      public func getMetaData(name: String) -> MetaData?{
@@ -55,11 +42,11 @@ public class DataManager
         var theMetaData:MetaData? = nil
         
         if (fetchResults?.count>0){
-            // newMetaData
-            println("found metadata: \(fetchResults?[0])")
             theMetaData = fetchResults?[0]
+            let m :MetaData! = fetchResults?[0]
+            println("found metadata \(m.toString())")
         } else {
-            println("Cannot find matching MetaData with name of \(name)")
+            println("Cannot find matching MetaData for name \(name)")
         }
         return theMetaData
     }
@@ -72,18 +59,23 @@ public class DataManager
             return m!.value
         }
         return ""
-        
     }
-    
     
     public func getAllMetaData() -> [MetaData]?{
         // check if given meta exists
         let fetchRequest = NSFetchRequest(entityName: "MetaData")
         let fetchResults = dbContext!.executeFetchRequest(fetchRequest, error: nil) as? [MetaData]
         
-        println("found \(fetchResults?.count) meta data")
+        var c: Int! = fetchResults?.count
+        
+        var s = "found \(c) metedata "
+        var m:MetaData!
+        
+        for var i = 0; i < c; i++ {
+            m = fetchResults?[i]
+            s += m.toString() + " "
+        }
+        println("\(s)")
         return fetchResults
     }
-    
-    
 }

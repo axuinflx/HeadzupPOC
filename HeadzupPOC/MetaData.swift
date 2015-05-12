@@ -15,6 +15,9 @@ public class MetaData: NSManagedObject {
     @NSManaged var value: String
     @NSManaged var isSecured: NSNumber
 
+    public func toString() -> String {
+        return "(\(name):\(value))"
+    }
 }
 
 public struct MetaDataKeys{
