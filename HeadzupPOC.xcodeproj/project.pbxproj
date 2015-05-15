@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		143930F51B03AD3C008D9B09 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 143930F21B03AC9B008D9B09 /* CryptoSwift.framework */; };
 		143930F81B03AECA008D9B09 /* MobileCryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143930F71B03AECA008D9B09 /* MobileCryptoUtil.swift */; };
 		143930FA1B03C420008D9B09 /* EncDecTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143930F91B03C420008D9B09 /* EncDecTestCase.swift */; };
 		143930FB1B03C4A6008D9B09 /* MobileCryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143930F71B03AECA008D9B09 /* MobileCryptoUtil.swift */; };
@@ -15,6 +14,7 @@
 		145E9F9F1AFCFB8300D313C8 /* MetaDataTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E9F9E1AFCFB8300D313C8 /* MetaDataTestCase.swift */; };
 		145E9FA01AFCFBBA00D313C8 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F69F1D91AFAC7E000262DD8 /* DataManager.swift */; };
 		145E9FA11AFCFBBD00D313C8 /* MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F69F1D71AFAC34E00262DD8 /* MetaData.swift */; };
+		14C194141B067F1C00232375 /* GeneralHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C194131B067F1C00232375 /* GeneralHelpers.swift */; };
 		14C771991AF7B39A00EA59CD /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C771981AF7B39A00EA59CD /* Formatter.swift */; };
 		14C7719B1AF7B3CB00EA59CD /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7719A1AF7B3CB00EA59CD /* Logger.swift */; };
 		14C7719D1AF7B3F400EA59CD /* LogLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C7719C1AF7B3F400EA59CD /* LogLevel.swift */; };
@@ -71,6 +71,7 @@
 		143930F91B03C420008D9B09 /* EncDecTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncDecTestCase.swift; sourceTree = "<group>"; };
 		145E9F9C1AFCFB4000D313C8 /* CoreDataTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTestCase.swift; sourceTree = "<group>"; };
 		145E9F9E1AFCFB8300D313C8 /* MetaDataTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaDataTestCase.swift; sourceTree = "<group>"; };
+		14C194131B067F1C00232375 /* GeneralHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralHelpers.swift; sourceTree = "<group>"; };
 		14C771981AF7B39A00EA59CD /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		14C7719A1AF7B3CB00EA59CD /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		14C7719C1AF7B3F400EA59CD /* LogLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogLevel.swift; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				143930F51B03AD3C008D9B09 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,12 +129,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		143930F61B03AE4A008D9B09 /* CryptoUtil */ = {
+		143930F61B03AE4A008D9B09 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				143930F71B03AECA008D9B09 /* MobileCryptoUtil.swift */,
+				14C194131B067F1C00232375 /* GeneralHelpers.swift */,
 			);
-			name = CryptoUtil;
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		14C771971AF7B33A00EA59CD /* Logger */ = {
@@ -173,7 +174,7 @@
 		6AB04BF21AE694BE00C083FA /* HeadzupPOC */ = {
 			isa = PBXGroup;
 			children = (
-				143930F61B03AE4A008D9B09 /* CryptoUtil */,
+				143930F61B03AE4A008D9B09 /* Utilities */,
 				9F69F1D61AFAC2B200262DD8 /* HeadzupData */,
 				14C771971AF7B33A00EA59CD /* Logger */,
 				6AB04BFC1AE694BE00C083FA /* Main.storyboard */,
@@ -358,6 +359,7 @@
 				6AB04C1B1AE6C4F800C083FA /* TrackerViewController.swift in Sources */,
 				6AB04BFB1AE694BE00C083FA /* ViewController.swift in Sources */,
 				6AB04BF91AE694BE00C083FA /* HeadzupPOC.xcdatamodeld in Sources */,
+				14C194141B067F1C00232375 /* GeneralHelpers.swift in Sources */,
 				14C7719F1AF7B43600EA59CD /* LogLocation.swift in Sources */,
 				14C7719D1AF7B3F400EA59CD /* LogLevel.swift in Sources */,
 				6A45E6771AF7E55600EE0E0C /* HomeViewController.swift in Sources */,
