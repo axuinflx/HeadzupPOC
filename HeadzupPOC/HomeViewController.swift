@@ -10,10 +10,12 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var nickNameLB: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        nickNameLB.text = "Hi \(AppContext.userName)"
     }
 
     override func didReceiveMemoryWarning() {
