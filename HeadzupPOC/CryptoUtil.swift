@@ -1,16 +1,19 @@
 //
-//  MobileCryptoUtil.swift
+//  CryptoUtil.swift
 //  HeadzupPOC
 //
-//  Created by Abebe Woreta on 5/13/15.
+//  Created by Abebe Woreta on 5/18/15.
 //  Copyright (c) 2015 Inflexxion. All rights reserved.
 //
 
 import Foundation
-import CryptoSwift
 
-public class MobileCryptoUtil{
-    
+public class CryptoUtil
+{
+    public init()
+    {
+        
+    }
     public func generateSecurityToken(textToBeEncrypted:String) ->NSString {
         
         //return getEncryptedData(textToBeEncrypted)
@@ -23,13 +26,14 @@ public class MobileCryptoUtil{
     
     
     
-    func getEncryptedData(plainText: String, iv:[UInt8], key:[UInt8])->String
+    public func getEncryptedData(plainText: String, iv:[UInt8], key:[UInt8])->String
     {
-       //1. convert plaintext to byte array
+        //1. convert plaintext to byte array
         let plainTextData = [UInt8](plainText.utf8)
         
         
         // 2. encrypt
+        
         let encryptedData = AES(key: key, iv: iv, blockMode: .CBC)?.encrypt(plainTextData, padding: PKCS7())
         
         //3. Encoded String
@@ -43,9 +47,9 @@ public class MobileCryptoUtil{
     
     
     
-    func getDecryptedData(encryptedString:String, iv:[UInt8], key:[UInt8])->NSString
+    public func getDecryptedData(encryptedString:String, iv:[UInt8], key:[UInt8])->NSString
     {
-
+        
         //1. Decoded String
         let nsData:NSData = NSData(base64EncodedString: encryptedString, options: NSDataBase64DecodingOptions(rawValue:0))!
         
@@ -86,6 +90,5 @@ public class MobileCryptoUtil{
         return bytes
         
     }
-    
-}
 
+}

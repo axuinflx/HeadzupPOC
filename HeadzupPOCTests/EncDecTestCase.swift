@@ -9,6 +9,7 @@
 import UIKit
 import XCTest
 import CryptoSwift
+import HeadzupPOC
 
 class EncDecTestCase: XCTestCase {
 
@@ -44,10 +45,10 @@ class EncDecTestCase: XCTestCase {
             
             //let iv:[UInt8] = iv1
             
-            var encryptedString0 = MobileCryptoUtil().getEncryptedData("Headzup123", iv: iv, key: key)
+            var encryptedString0 = CryptoUtil().getEncryptedData("Headzup123", iv: iv, key: key)
             
             
-            var decryptedString0 = MobileCryptoUtil().getDecryptedData(encryptedString0, iv: iv, key: key)
+            var decryptedString0 = CryptoUtil().getDecryptedData(encryptedString0, iv: iv, key: key)
         }
         
         
@@ -56,29 +57,29 @@ class EncDecTestCase: XCTestCase {
         
         
         
-        var encryptedString0 = MobileCryptoUtil().getEncryptedData("Test", iv: iv, key: key)
+        var encryptedString0 = CryptoUtil().getEncryptedData("Test", iv: iv, key: key)
         
         
-        var decryptedString0 = MobileCryptoUtil().getDecryptedData(encryptedString0, iv: iv, key: key)
+        var decryptedString0 = CryptoUtil().getDecryptedData(encryptedString0, iv: iv, key: key)
         
         //Second test case
-        var encryptedString1 = MobileCryptoUtil().getEncryptedData("Exercise", iv: iv, key: key)
+        var encryptedString1 = CryptoUtil().getEncryptedData("Exercise", iv: iv, key: key)
         
         
-        var decryptedString1 = MobileCryptoUtil().getDecryptedData(encryptedString1, iv: iv, key: key)
+        var decryptedString1 = CryptoUtil().getDecryptedData(encryptedString1, iv: iv, key: key)
         
         
         //Third test case
-        var encryptedString2 = MobileCryptoUtil().getEncryptedData("Experiment", iv: iv, key: key)
+        var encryptedString2 = CryptoUtil().getEncryptedData("Experiment", iv: iv, key: key)
         
         
-        var decryptedString2 = MobileCryptoUtil().getDecryptedData(encryptedString2, iv: iv, key: key)
+        var decryptedString2 = CryptoUtil().getDecryptedData(encryptedString2, iv: iv, key: key)
         
         //Fourth test case
-        var encryptedString3 = MobileCryptoUtil().getEncryptedData("Investigation", iv: iv, key: key)
+        var encryptedString3 = CryptoUtil().getEncryptedData("Investigation", iv: iv, key: key)
         
         
-        var decryptedString3 = MobileCryptoUtil().getDecryptedData(encryptedString3, iv: iv, key: key) 
+        var decryptedString3 = CryptoUtil().getDecryptedData(encryptedString3, iv: iv, key: key) 
 
         
         //XCTAssertNotNil(dm, "unable to get encryptedData")
