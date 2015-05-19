@@ -48,7 +48,11 @@ public class DataManager
         println("meta saved: \(theMetaData.toString())")
     }
     
-     public func getMetaData(name: String) -> MetaData?{
+    
+    // Return meta data string value. Empty string will be return if such meta data doesn't exist
+    public func getMetaDataValue(name: String) -> String {
+        
+        var retVal = ""
         // check if given meta exists
         let fetchRequest = NSFetchRequest(entityName: "MetaData")
         fetchRequest.predicate = NSPredicate(format: "name == \"\(name)\"")
@@ -64,24 +68,19 @@ public class DataManager
             {
                 //encrypt value
                 var decryptedValue = CryptoUtil().getDecryptedData(theMetaData!.value, iv: iv, key: key)
-                theMetaData?.value = decryptedValue as String
+                retVal = decryptedValue as String
                 
             }
-            println("found metadata \(m.toString())")
+            else
+            {
+                retVal = theMetaData!.value
+            }
+            println("found metadata: name->\(name)->\(retVal)")
         } else {
             println("Cannot find matching MetaData for name \(name)")
         }
-        return theMetaData
-    }
-    
-    // Return meta data string value. Empty string will be return if such meta data doesn't exist
-    public func getMetaDataValue(name: String) -> String {
         
-        var m = getMetaData(name)
-        if m != nil {
-            return m!.value
-        }
-        return ""
+        return retVal
     }
     
     public func getAllMetaData() -> [MetaData]?{
