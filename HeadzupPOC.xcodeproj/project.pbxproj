@@ -10,7 +10,6 @@
 		143930FA1B03C420008D9B09 /* EncDecTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143930F91B03C420008D9B09 /* EncDecTestCase.swift */; };
 		145E9F9D1AFCFB4000D313C8 /* CoreDataTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E9F9C1AFCFB4000D313C8 /* CoreDataTestCase.swift */; };
 		145E9F9F1AFCFB8300D313C8 /* MetaDataTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145E9F9E1AFCFB8300D313C8 /* MetaDataTestCase.swift */; };
-		145E9FA01AFCFBBA00D313C8 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F69F1D91AFAC7E000262DD8 /* DataManager.swift */; };
 		145E9FA11AFCFBBD00D313C8 /* MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F69F1D71AFAC34E00262DD8 /* MetaData.swift */; };
 		14C194181B06816900232375 /* AES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C194171B06816900232375 /* AES.swift */; };
 		14C1941C1B0681C800232375 /* CipherBlockMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C1941B1B0681C800232375 /* CipherBlockMode.swift */; };
@@ -447,7 +446,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6AB04C0F1AE694BE00C083FA /* HeadzupPOCTests.swift in Sources */,
-				145E9FA01AFCFBBA00D313C8 /* DataManager.swift in Sources */,
 				145E9FA11AFCFBBD00D313C8 /* MetaData.swift in Sources */,
 				145E9F9D1AFCFB4000D313C8 /* CoreDataTestCase.swift in Sources */,
 				143930FA1B03C420008D9B09 /* EncDecTestCase.swift in Sources */,
